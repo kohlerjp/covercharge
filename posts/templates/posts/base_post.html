@@ -1,0 +1,14 @@
+{% load staticfiles %}
+{% if user.is_authenticated %}
+<p> {{user.username}} </p>
+{% endif %}
+<link rel="stylesheet" type="text/css" href="{% static 'posts/bootstrap.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'posts/style.css' %}" />
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#">Home</a></li>
+  <li><a href="{% url 'users:login_view' %}">Login</a></li>
+  <li><a href="#">Messages</a></li>
+</ul>
+{% block content %}
+{% endblock %}
+

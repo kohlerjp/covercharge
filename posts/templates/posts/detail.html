@@ -1,0 +1,13 @@
+{% extends "posts/base_post.html" %}
+{% block content %}
+
+<p> <a href="{{post.location}}">{{post.title}}</a> <br/>
+score: <strong>{{post.score}}</strong> <br/>
+comments:
+<ul>
+{% for comment in post.comment_set.all %}
+	<li>{{comment.content}}</li>
+{% endfor %}
+ </ul>
+ </p>
+ {% endblock %}

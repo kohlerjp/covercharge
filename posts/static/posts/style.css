@@ -1,0 +1,26 @@
+#feed_header{
+	margin-bottom: 10px;
+}
+.feed_container{
+	padding: 10px;
+}
+.post_list{
+	list-style: none;
+}
+.post_container{
+	margin-left: 0px;
+	border-bottom-style: solid;
+	border-bottom-color: rgb(209, 209, 209);
+	border-bottom-width: 1px; 
+}
+.video_container{
+
+}
+.score_container{
+	font-size: 80px;
+	margin-top: 0px;
+	margin:auto;
+}
+.vote{
+	margin: auto;
+}

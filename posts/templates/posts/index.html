@@ -1,0 +1,55 @@
+{% extends "posts/base_post.html" %}
+{% block content %}
+<div class="feed_container">
+	<h1 id='feed_header'>Top Covers</h1>
+{% if latest %}
+
+
+<ul>
+{% for post in latest %}
+	<li class='post_list'>
+		<div class='container post_container'>
+			<h3><a href="{% url 'posts:detail' post.id %}">{{post.title}}</a></h3>
+			{% if post.media == 'youtube'%}
+				<div class='row'>
+					<div class="col-md-8">
+						<iframe width="560" height="315" src="//www.youtube.com/embed/{{post.get_id}}" frameborder="0" allowfullscreen></iframe>
+					</div>
+					<div class="col-md-3" style="text-align:center;">
+						<div class="row-md-4 vote">
+							<form  action="{% url 'posts:upvote' post.id %}" method='post'>
+								{% csrf_token %}
+								<input type='hidden' name='page' value="{{page}}">
+								<input type='submit' value='Upvote'>
+							</form>
+						</div>
+						<div class="row-md-4 score_container">
+							<strong>{{post.score}} </strong>
+						</div>
+						<div class="row-md-4 vote">
+							<form action="{% url 'posts:downvote' post.id %}" method='post'>
+								{% csrf_token %}
+								<input type='hidden' name='page' value="{{page}}">
+								<input type='submit' value='Downvote'>
+							</form>
+						</div>
+
+					</div>
+				</div>
+			{% elif post.media == 'soundcloud' %}
+			<p>poop</p>
+			{% endif %}
+
+			
+
+
+		</div>
+	</li>
+{% endfor %}
+</ul>
+{% else %}
+<p>You've seen everything</p>
+{% endif %}
+</div>
+
+{% endblock %}
